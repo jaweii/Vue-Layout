@@ -4,7 +4,7 @@
 Vue-Layout
 ==
 
-基于UI组件的Vue可视化布局工具：https://jaweii.github.io/Vue-Layout/  
+基于UI组件的Vue可视化布局、生成.vue代码的工具。https://jaweii.github.io/Vue-Layout/  
 
 ----------
 
