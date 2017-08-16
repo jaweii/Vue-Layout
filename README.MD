@@ -20,7 +20,7 @@ Vue-Layout
 
 ![此处输入图片的描述][3]
 
-上图的后台布局例子，你可以进入这个页面访问其布局：https://jaweii.github.io/Vue-Layout/#/share/5993d3b05c497d0057c6f2da
+上图的后台布局例子，你可以进入这个页面访问其布局：https://jaweii.github.io/Vue-Layout/#/share/5993d3b05c497d0057c6f2da  
 也可以进入这个页面体验其布局效果：https://jaweii.github.io/Vue-Layout/#/preview/pc/5993d3b05c497d0057c6f2da
 
 最后
