@@ -57,7 +57,8 @@ li标签包裹的元素，就是显示在组件列表视图的元素，其中li�
 最后
 --
 
-项目没有使用eslint，使用的格式化插件：https://packagecontrol.io/packages/HTML-CSS-JS%20Prettify（默认配置，仅在配置项的格式化文件类型中增加了.vue格式）。
+项目没有使用eslint，使用的格式化插件：https://packagecontrol.io/packages/HTML-CSS-JS%20Prettify  
+（默认配置，仅在配置项的格式化文件类型中增加了.vue格式）。
 
 欢迎道友们一起来让Vue-Layout支持跟多UI~
 
