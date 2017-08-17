@@ -1,5 +1,5 @@
 
-![此处输入图片的描述][1]
+![banner][1]
 
 Vue-Layout
 ==
@@ -13,12 +13,12 @@ Vue-Layout
 
 使用
 
-![此处输入图片的描述][2]
+![demo1][2]
 
 效果
 
 
-![此处输入图片的描述][3]
+![demo2][3]
 
 上图的后台布局例子，你可以进入这个页面访问其布局：https://jaweii.github.io/Vue-Layout/#/share/5993d3b05c497d0057c6f2da  
 也可以进入这个页面体验其布局效果：https://jaweii.github.io/Vue-Layout/#/preview/pc/5993d3b05c497d0057c6f2da
@@ -32,5 +32,7 @@ Vue-Layout
   [1]: https://raw.githubusercontent.com/jaweii/Vue-Layout/master/static/banner.JPG
   [2]: https://raw.githubusercontent.com/jaweii/Vue-Layout/master/static/demo1.gif
   [3]: https://raw.githubusercontent.com/jaweii/Vue-Layout/master/static/demo2.gif
+  
+  2.gif
   
   
