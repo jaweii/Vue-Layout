@@ -1,44 +1,22 @@
 <template>
     <section>
-        <mu-tabs :value="activeTab" @change="handleTabChange">
-            <mu-tab value="Mint-UI" title="Mint-UI" />
-            <mu-tab value="Muse-UI" title="Muse-UI" />
-            <mu-tab value="Common" title="通用" />
-        </mu-tabs>
-        <div v-if="activeTab==='Common'">
-            <br>
-            <ul class="components-list" @mousedown="mouseDown">
-                <li draggable="true" @dragstart="dragStart" data-name="Text">
-                    <mu-icon value="text_fields" style="vertical-align:middle;" /> 文本
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="A">
-                    <mu-icon value="link" style="vertical-align:middle;" /> 链接
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Img">
-                    <mu-icon value="image"/> 图片
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Br">
-                    <mu-icon value="keyboard_return"/> 换行
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Div">
-                    <mu-icon value="check_box_outline_blank"/> div
-                </li>
-            </ul>
-        </div>
-        <div v-if="activeTab === 'Mint-UI'">
-            <br>
-            <ul class="components-list" @mousedown="mouseDown">
-                <li draggable="true" @dragstart="dragStart" data-name="Header">
-                    <mt-header fixed title="Header"></mt-header>
-                </li>
-                <li draggable="true" @dragstart="dragStart" data-name="Button">
-                    <mt-button type="default">Button</mt-button>
-                </li>
-            </ul>
-        </div>
+        <mu-content-block style="display:flex;">
+            <mu-select-field :value="activeTab" @change="handleTabChange" autoWidth>
+                <mu-menu-item title="Muse-UI" value="Muse-UI">
+                </mu-menu-item>
+                <mu-menu-item title="Mint-UI" value="Mint-UI">
+                </mu-menu-item>
+                <mu-menu-item title="iView-UI" value="iView-UI">
+                </mu-menu-item>
+                <mu-menu-item title="Element-UI" value="Element-UI">
+                </mu-menu-item>
+                <mu-menu-item title="通用" value="Common">
+                </mu-menu-item>
+            </mu-select-field>
+            <mu-sub-header style="white-space:nowrap;">- 组件</mu-sub-header>
+        </mu-content-block>
         <div v-if="activeTab === 'Muse-UI'">
-            <br>
-            <ul class="components-list" @mousedown="mouseDown">
+            <ul class="components-list">
                 <!-- 导航栏 -->
                 <li draggable="true" @dragstart="dragStart" data-name="App Bar">
                     <appbar />
@@ -134,13 +112,61 @@
                 <li draggable="true" @dragstart="dragStart" data-name="Circular Progress">
                     <circularProgress />
                 </li>
-
                 <li draggable="true" @dragstart="dragStart" data-name="Card">
                     <card />
                 </li>
-                <!--                 <li draggable="true" @dragstart="dragStart" data-name="Back Top">
+                <!--                 
+                <li draggable="true" @dragstart="dragStart" data-name="Back Top">
                     <backTop/>
-                </li> -->
+                </li> 
+                -->
+            </ul>
+        </div>
+        <div v-if="activeTab === 'Mint-UI'">
+            <ul class="components-list">
+                <li draggable="true" @dragstart="dragStart" data-name="Header">
+                    <mt-header fixed title="Header"></mt-header>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Button">
+                    <mt-button type="default">Button</mt-button>
+                </li>
+            </ul>
+        </div>
+        <div v-if="activeTab === 'iView-UI'">
+            <ul class="components-list">
+                <!--                 
+                <li draggable="true" @dragstart="dragStart" data-name="Header">
+                    <mt-header fixed title="Header"></mt-header>
+                </li> 
+                -->
+            </ul>
+        </div>
+        <div v-if="activeTab === 'Element-UI'">
+            <ul class="components-list">
+                <!--                 
+                <li draggable="true" @dragstart="dragStart" data-name="Header">
+                    <mt-header fixed title="Header"></mt-header>
+                </li> 
+                -->
+            </ul>
+        </div>
+        <div v-if="activeTab==='Common'">
+            <ul class="components-list">
+                <li draggable="true" @dragstart="dragStart" data-name="Text">
+                    <mu-icon value="text_fields" style="vertical-align:middle;" /> 文本
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="A">
+                    <mu-icon value="link" style="vertical-align:middle;" /> 链接
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Img">
+                    <mu-icon value="image" /> 图片
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Br">
+                    <mu-icon value="keyboard_return" /> 换行
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Div">
+                    <mu-icon value="check_box_outline_blank" /> div
+                </li>
             </ul>
         </div>
     </section>
@@ -155,40 +181,11 @@ export default {
         }
     },
     mounted() {
-        //组件拖拽跟随鼠标
-        // document.onmousemove = this.mouseMove
-
-        //松开后移除
-        // document.onmouseup = e => {
-        //     let drag = document.getElementById('dragging')
-        //     this.removeDom(drag)
-        // }
 
     },
     methods: {
         handleTabChange(val) {
             this.activeTab = val
-        },
-        mouseDown(e) {
-            return
-            let component = this.getComponent(e.target)
-            if (!component)
-                return
-            let drag = document.getElementById('dragging')
-            this.removeDom(drag)
-            drag = component.cloneNode(true)
-            drag.id = 'dragging'
-            drag.setAttribute('draggable', true)
-            drag.style.width = component.offsetWidth + 'px'
-            drag.style.height = component.offsetHeight + 'px'
-            document.body.appendChild(drag)
-        },
-        mouseMove(e) {
-            let drag = document.getElementById('dragging')
-            if (!drag)
-                return
-            drag.style.left = e.pageX - drag.offsetWidth / 2 + 'px'
-            drag.style.top = e.pageY - drag.offsetHeight / 2 + 'px'
         },
         getComponent(e) {
             if (!e)
@@ -237,7 +234,7 @@ export default {
     &:hover {
         transform: scale(1)translateX(5%);
     }
-    i{
+    i {
         vertical-align: middle;
     }
 }

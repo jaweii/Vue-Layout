@@ -3,11 +3,11 @@
         <mu-appbar>
             <div class="title">
                 Vue-Layout
-                <mu-badge class="description" content="可视化布局 v1.0" color="#f06292" />
+                <mu-badge class="description" content="可视化布局 1.0" color="#f06292" />
             </div>
             <mu-icon-button icon="share" slot="right" @click="share.open=true" />
             <mu-icon-button icon="settings" slot="right" @click="setting.open=true" />
-            <mu-icon-button icon=":iconfont icon-github" slot="right" href="https://github.com/jaweii/Vue-Layout" />
+            <mu-icon-button icon=":iconfont icon-github" slot="right" href="https://github.com/jaweii/Vue-Layout" /> 
         </mu-appbar>
         <mu-row class="main-content">
             <mu-col class="attributes" :width="width.attr" :tablet="width.attr" :desktop="width.attr">
@@ -31,7 +31,6 @@
                 <preview ref="preview" />
             </mu-col>
             <mu-col class="components" :width="width.components" :tablet="width.components" :desktop="width.components">
-                <mu-sub-header>组件</mu-sub-header>
                 <components ref="components" />
             </mu-col>
         </mu-row>
