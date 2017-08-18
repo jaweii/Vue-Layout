@@ -29,7 +29,7 @@
         </mu-content-block>
         <!-- 组件拖动属于嵌套操作时，这个弹出框会弹出 -->
         <mu-popover v-if="current.info" :trigger="popover.trigger" :open="popover.open" @close="popover.open=false">
-            <mu-menu>
+            <mu-menu @change="selectedSlot">
                 <label>
                     &nbsp;&nbsp;嵌套到{{current.info.name}}:
                 </label>
@@ -394,6 +394,9 @@ export default {
             let placeholder = document.getElementById('placeholder')
             if (placeholder)
                 placeholder.parentElement.removeChild(placeholder)
+        },
+        selectedSlot(){
+            // 必需，勿删，会在ondrop中被重写
         },
         getSource(components) { //预览视图中所有组件的代码
             let code = `<template><section>`
