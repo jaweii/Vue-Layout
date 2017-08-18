@@ -1,8 +1,8 @@
 <template>
     <section class="preview" @dragover="dragOver" @drop="drop">
         <!-- CODE视图 -->
-        <mu-paper class="sound-code">
-            <div class="sound-code-bar">
+        <mu-paper class="preview-head">
+            <div class="bar">
                 <mu-sub-header style="display:inline;">{{showType}}</mu-sub-header>
                 <mu-icon-button style="float:right;" icon="fullscreen" tooltip="全屏" @click="fullScreen" />
                 <mu-icon-button style="float:right;" icon="delete" tooltip="清空" @click="empty" />
@@ -14,7 +14,7 @@
                 <mu-icon-button style="float:right;" icon="code" tooltip="查看代码" @click="showCode" />
                 <mu-icon-button v-if="$store.state.backupComponents.length" style="float:right;" icon="undo" tooltip="撤销" @click="undo" />
             </div>
-            <mu-content-block :class="{'sound-code-content':true,'active':showType!=='预览'}">
+            <mu-content-block :class="{'content':true,'active':showType!=='预览'}">
                 <pre v-show="showType==='CODE'" v-highlightjs="getSource(components)"><code class="html"></code></pre>
                 <textarea v-show="showType==='编辑样式'" class="css-editor" placeholder=".vue-layout{ ... }" v-model="css"></textarea>
             </mu-content-block>
@@ -395,7 +395,7 @@ export default {
             if (placeholder)
                 placeholder.parentElement.removeChild(placeholder)
         },
-        selectedSlot(){
+        selectedSlot() {
             // 必需，勿删，会在ondrop中被重写
         },
         getSource(components) { //预览视图中所有组件的代码
@@ -569,7 +569,7 @@ export default {
                 components = components.concat(copiedComponents)
                 this.$store.commit('setState', {
                     components,
-                    copiedComponents: []//粘贴后清除剪切板
+                    copiedComponents: [] //粘贴后清除剪切板
                 })
                 let topComponent = this.getParentComponent(components[index])
                 let topIndex = components.findIndex(c => c.info.id === topComponent.info.id)
@@ -577,7 +577,7 @@ export default {
                     //因为getTemplate中需要最新的components，所以提交两次状态
                 this.$store.commit('setState', {
                     components,
-                    copiedComponents: []//粘贴后清除剪切板
+                    copiedComponents: [] //粘贴后清除剪切板
                 })
                 this.fresh()
             })
@@ -649,10 +649,10 @@ export default {
 
 .preview-area {
     overflow: auto;
-    padding-top: 48px;
     position: relative;
     height: inherit;
     z-index: 0;
+    padding-bottom: 100px;
 }
 
 .preview-tip {
@@ -663,27 +663,31 @@ export default {
     z-index: -1;
 }
 
-.sound-code {
-    position: absolute;
+.preview-head {
     width: 100%;
     top: 0;
     z-index: 2;
-}
-
-.sound-code-bar {
-    background-color: @grey100;
-}
-
-.sound-code-content {
-    height: 0;
-    overflow: auto;
-    transition: all .2s;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    background-color: @grey50;
-    user-select: text;
+    .bar {
+        background-color: @grey100;
+    }
+    .content {
+        height: 0;
+        overflow: auto;
+        transition: all .2s;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: @grey50;
+        user-select: text;
+        code {
+            background: none;
+            font-family: Consolas, Liberation Mono, Menlo, Courier, monospace;
+        }
+    }
+    .content.active {
+        height: 95vh;
+    }
 }
 
 .css-editor {
@@ -693,15 +697,6 @@ export default {
     height: 100%;
     outline: none;
     overflow: auto;
-}
-
-.sound-code-content code {
-    background: none;
-    font-family: Consolas, Liberation Mono, Menlo, Courier, monospace;
-}
-
-.sound-code-content.active {
-    height: 95vh;
 }
 
 .preview-mobile {
@@ -719,10 +714,4 @@ export default {
     width: 100%;
 }
 </style>
-<style>
-/*预览视图底部预留空间 方便操作   */
 
-.preview-area > *:nth-last-child(1) {
-    margin-bottom: 100px;
-}
-</style>

@@ -5,6 +5,10 @@ var handle = function(_attr, _slots) {
             title: {
                 type: 'text',
                 value: 'title'
+            },
+            fixed:{
+                type:'boolean',
+                value:false
             }
         },
         slots = {

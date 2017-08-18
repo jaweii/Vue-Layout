@@ -1,7 +1,7 @@
 <template>
     <section>
         <mu-content-block style="display:flex;">
-            <mu-select-field :value="activeTab" @change="handleTabChange" autoWidth>
+            <mu-select-field :value="activeUI" @change="handleTabChange" autoWidth>
                 <mu-menu-item title="Muse-UI" value="Muse-UI">
                 </mu-menu-item>
                 <mu-menu-item title="Mint-UI" value="Mint-UI">
@@ -15,7 +15,7 @@
             </mu-select-field>
             <mu-sub-header style="white-space:nowrap;">- 组件</mu-sub-header>
         </mu-content-block>
-        <div v-if="activeTab === 'Muse-UI'">
+        <div v-if="activeUI === 'Muse-UI'">
             <ul class="components-list">
                 <!-- 导航栏 -->
                 <li draggable="true" @dragstart="dragStart" data-name="App Bar">
@@ -122,7 +122,7 @@
                 -->
             </ul>
         </div>
-        <div v-if="activeTab === 'Mint-UI'">
+        <div v-if="activeUI === 'Mint-UI'">
             <ul class="components-list">
                 <li draggable="true" @dragstart="dragStart" data-name="Header">
                     <mt-header fixed title="Header"></mt-header>
@@ -132,7 +132,7 @@
                 </li>
             </ul>
         </div>
-        <div v-if="activeTab === 'iView-UI'">
+        <div v-if="activeUI === 'iView-UI'">
             <ul class="components-list">
                 <!--                 
                 <li draggable="true" @dragstart="dragStart" data-name="Header">
@@ -141,7 +141,7 @@
                 -->
             </ul>
         </div>
-        <div v-if="activeTab === 'Element-UI'">
+        <div v-if="activeUI === 'Element-UI'">
             <ul class="components-list">
                 <!--                 
                 <li draggable="true" @dragstart="dragStart" data-name="Header">
@@ -150,7 +150,7 @@
                 -->
             </ul>
         </div>
-        <div v-if="activeTab==='Common'">
+        <div v-if="activeUI==='Common'">
             <ul class="components-list">
                 <li draggable="true" @dragstart="dragStart" data-name="Text">
                     <mu-icon value="text_fields" style="vertical-align:middle;" /> 文本
@@ -176,16 +176,14 @@ import museUiList from './list/muse-ui'
 export default {
     name: 'components',
     data() {
-        return {
-            activeTab: 'Muse-UI'
-        }
+        return {}
     },
     mounted() {
 
     },
     methods: {
         handleTabChange(val) {
-            this.activeTab = val
+            this.activeUI = val
         },
         getComponent(e) {
             if (!e)
@@ -203,9 +201,21 @@ export default {
             let componentName = e.target.getAttribute('data-name')
             let info = {
                 name: componentName,
-                ui: this.activeTab
+                ui: this.activeUI
             }
             e.dataTransfer.setData('info', JSON.stringify(info))
+        }
+    },
+    computed: {
+        activeUI: {
+            get() {
+                return this.$store.state.activeUI 
+            },
+            set(val) {
+                this.$store.commit('setState', {
+                    activeUI: val
+                })
+            }
         }
     },
     components: {

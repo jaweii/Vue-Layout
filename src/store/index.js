@@ -22,6 +22,7 @@ const store = new Vuex.Store({
             components: '25'
         }],
         css: '', //用户编辑的自定义css字符串
+        activeUI:'Muse-UI',
         currentComponent: {}, //预览视图的选中组件
         components: [], //预览视图的组件树
         backupComponents: [],//删除组件时备份的

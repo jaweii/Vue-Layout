@@ -31,6 +31,5 @@ section {
     width: 100%;
     height: 100vh;
     background-color: @grey50;
-    margin-top: 48px;
 }
 </style>
