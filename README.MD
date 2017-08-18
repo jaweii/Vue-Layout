@@ -47,7 +47,7 @@ Vue-Layout
 
 li标签包裹的元素，就是显示在组件列表视图的元素，其中li的data-name的值必须与上一步骤中保存的键名相同。  
 
-5. 对于新增的UI，最后在`./src/components/template/index.js`中，添加类似下图这样的方法就可以了：  
+5. 对于新增的UI，最后在`./src/components/template/index.js`中，添加类似下图这样的方法就可以了：    
 ![此处输入图片的描述][6]  
 
 
@@ -71,6 +71,6 @@ li标签包裹的元素，就是显示在组件列表视图的元素，其中li�
   [3]: https://raw.githubusercontent.com/jaweii/Vue-Layout/master/static/demo2.gif
 
   [4]: https://raw.githubusercontent.com/jaweii/Vue-Layout/master/docs/images/App%20Bar1.png
-  [5]:  https://raw.githubusercontent.com/jaweii/Vue-Layout/master/docs/images/Header%201.png
-  [6]:  https://raw.githubusercontent.com/jaweii/Vue-Layout/master/docs/images/getTemplate.png
+  [5]: https://raw.githubusercontent.com/jaweii/Vue-Layout/master/docs/images/Header%201.png
+  [6]: https://raw.githubusercontent.com/jaweii/Vue-Layout/master/docs/images/getTemplte.png
  
