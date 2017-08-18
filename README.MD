@@ -72,5 +72,5 @@ li标签包裹的元素，就是显示在组件列表视图的元素，其中li�
 
   [4]: https://raw.githubusercontent.com/jaweii/Vue-Layout/master/docs/images/App%20Bar1.png
   [5]:  https://raw.githubusercontent.com/jaweii/Vue-Layout/master/docs/images/Header%201.png
-  [5]:  https://raw.githubusercontent.com/jaweii/Vue-Layout/master/docs/images/getTemplate.png
+  [6]:  https://raw.githubusercontent.com/jaweii/Vue-Layout/master/docs/images/getTemplate.png
  
