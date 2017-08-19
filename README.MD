@@ -61,7 +61,7 @@ li标签包裹的元素，就是显示在组件列表视图的元素，其中li�
     ├─App.vue
     ├─main.js
     ├─utils
-    |   ├─guid.js                        //返回一个唯一标识符，组件被拖入后的id调用此方法
+    |   ├─guid.js                        //返回一个唯一标识符，组件被拖入后的id就是调用此方法获得
     |   ├─leancloud storage.js           //分享功能，将Vuex数据保存到云端，使用leanCloud
     |   └mergeDeep.js                    //对象深度合并的方法
     ├─store
