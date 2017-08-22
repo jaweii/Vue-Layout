@@ -130,6 +130,27 @@
                 <li draggable="true" @dragstart="dragStart" data-name="Button">
                     <mt-button type="default">Button</mt-button>
                 </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Swipe">
+                    <mint-swipe />
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Range">
+                    <mt-range />
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Progress">
+                    <mint-progress />
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Cell">
+                    <mt-cell title="Cell" value="..."></mt-cell>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Switch">
+                    <mt-switch>Switch</mt-switch>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Field">
+                  <mt-field label="Field" placeholder="placeholder" ></mt-field>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Badge">
+                  <mt-badge type="primary">Badge</mt-badge>
+                </li>
             </ul>
         </div>
         <div v-if="activeUI === 'iView-UI'">
@@ -173,6 +194,7 @@
 </template>
 <script>
 import museUiList from './list/muse-ui'
+import mintUiList from './list/mint-ui'
 export default {
     name: 'components',
     data() {
@@ -219,7 +241,8 @@ export default {
         }
     },
     components: {
-        ...museUiList
+        ...museUiList,
+        ...mintUiList
     }
 }
 </script>

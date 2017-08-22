@@ -5,9 +5,31 @@ var handle = function(_attr, _slots) {
             label: {
                 type: 'text',
                 value: '按钮'
+            },
+            plain:{
+                type:'boolean',
+                value:''
+            },
+            type:{
+                type:'selection',
+                items:['default','primary','danger'],
+                value:'default'
+            },
+            size:{
+                type:'selection',
+                items:['small','normal','large'],
+                value:''
+            },
+            icon:{
+                type:'selection',
+                items:['more','back'],
+                value:''
             }
         },
-        slots = {}
+        slots = {
+            default:[],
+            icon:[]
+        }
 
     //覆盖默认属性
     Object.assign(slots, _slots)
@@ -38,6 +60,8 @@ var handle = function(_attr, _slots) {
                         ${stringAttr}>${subContent}
                             ${attributes.label.value}
                         </mt-button>`
+        //删除自定义非ui属性
+    template = template.replace(`:label="${attributes.label.value}"`, '')
     return { template, attributes, slots }
 }
 export default handle

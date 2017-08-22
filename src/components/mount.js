@@ -7,7 +7,13 @@ var mount = function(id, _component) {
     return new Promise((resolve, reject) => {
         //需要延迟才能取到document.getElementById(id)
         setTimeout(() => {
-            let {...data = {} } = _component.attributes
+            let data={}
+            if (_component.attributes) {
+                Object.keys(_component.attributes).forEach(key => {
+                    data[key] = _component.attributes[key].value
+                })
+            }
+            
             if (component.uid) { //销毁旧实例
 
             }

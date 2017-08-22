@@ -1,4 +1,4 @@
-import { getTemplate, getSlotContent , getStringTypeAttr } from '@/components/template'
+import { getTemplate, getSlotContent, getStringTypeAttr } from '@/components/template'
 import guid from '@/utils/guid'
 // 深度合并
 import mergeDeep from '@/utils/mergeDeep'
@@ -65,7 +65,7 @@ var handle = function(_attr, _slots, { id }) {
     let subContent = getSlotContent(slots)
 
     //设置当前组件的slot
-    if (attributes.slot && attributes.slot!=='default') {
+    if (attributes.slot && attributes.slot !== 'default') {
         attributes.slot = {
             type: 'text',
             value: attributes.slot
@@ -83,6 +83,9 @@ var handle = function(_attr, _slots, { id }) {
                         ${stringAttr}>
                         ${subContent}
                     </mu-row>`
+
+    //删除自定义非ui属性
+    template = template.replace(`:column="${attributes.column.value}"`, '')
 
     return { template, attributes, slots }
 }

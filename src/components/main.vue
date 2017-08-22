@@ -151,14 +151,14 @@ export default {
                               box-shadow: inset 0px 0px 0px 1px pink!important;
                           }
                           [data-component-active]:hover {
-                              box-shadow: inset 0px 0px 0px 1px pink;
+                              box-shadow: inset 0px 0px 0px 1px pink!important;
                           }
                           [data-component-active]:focus {
-                              box-shadow: inset 0px 0px 0px 1px pink;
+                              box-shadow: inset 0px 0px 0px 1px pink!important;
                           }`
             } else {
                 cssText = `[data-component-active="true"] {
-                              box-shadow: none!important;
+                              box-shadow: none;
                               outline:none;
                           }
                           [data-component-active]:hover {
