@@ -5,6 +5,11 @@ import store from './store'
 
 import './assets/css/global.css'
 
+//iView-UI
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
+Vue.use(iView)
+
 //Mint-UI
 import { Toast, Indicator } from 'mint-ui'
 import 'mint-ui/lib/style.css'

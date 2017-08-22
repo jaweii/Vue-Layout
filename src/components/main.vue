@@ -3,7 +3,7 @@
         <mu-appbar>
             <div class="title">
                 Vue-Layout
-                <mu-badge class="description" content="可视化布局 1.0" color="#f06292" />
+                <mu-badge class="description" content="可视化布局 " color="#f06292" />
             </div>
             <mu-icon-button icon="share" slot="right" @click="share.open=true" />
             <mu-icon-button icon="settings" slot="right" @click="setting.open=true" />

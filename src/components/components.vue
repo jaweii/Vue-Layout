@@ -146,20 +146,27 @@
                     <mt-switch>Switch</mt-switch>
                 </li>
                 <li draggable="true" @dragstart="dragStart" data-name="Field">
-                  <mt-field label="Field" placeholder="placeholder" ></mt-field>
+                    <mt-field label="Field" placeholder="placeholder"></mt-field>
                 </li>
                 <li draggable="true" @dragstart="dragStart" data-name="Badge">
-                  <mt-badge type="primary">Badge</mt-badge>
+                    <mt-badge type="primary">Badge</mt-badge>
                 </li>
             </ul>
         </div>
         <div v-if="activeUI === 'iView-UI'">
             <ul class="components-list">
-                <!--                 
-                <li draggable="true" @dragstart="dragStart" data-name="Header">
-                    <mt-header fixed title="Header"></mt-header>
-                </li> 
-                -->
+                <li draggable="true" @dragstart="dragStart" data-name="Row">
+                    <iview-row />
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Button">
+                    <Button size="large">Button</Button>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="ButtonGroup">
+                    <iview-button-group />
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Icon">
+                    <Icon type="happy-outline" :size="32"/>
+                </li>
             </ul>
         </div>
         <div v-if="activeUI === 'Element-UI'">
@@ -195,6 +202,7 @@
 <script>
 import museUiList from './list/muse-ui'
 import mintUiList from './list/mint-ui'
+import iViewUiList from './list/iview-ui'
 export default {
     name: 'components',
     data() {
@@ -231,7 +239,7 @@ export default {
     computed: {
         activeUI: {
             get() {
-                return this.$store.state.activeUI 
+                return this.$store.state.activeUI
             },
             set(val) {
                 this.$store.commit('setState', {
@@ -242,7 +250,8 @@ export default {
     },
     components: {
         ...museUiList,
-        ...mintUiList
+        ...mintUiList,
+        ...iViewUiList
     }
 }
 </script>

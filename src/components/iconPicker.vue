@@ -1,3 +1,4 @@
+<!-- Muse-UI图标选择器 -->
 <template>
     <section>
         <div class="form" style="display:flex;">

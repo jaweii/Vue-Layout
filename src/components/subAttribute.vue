@@ -23,8 +23,10 @@
             <mu-select-field v-if="v.type==='selection'" autoWidth v-model="v.value" :label="k" @input="updateAttribute" style="width:100%;">
                 <mu-menu-item v-for="(item,index) in v.items" :value="item" :title="item" :key="index" />
             </mu-select-field>
-            <!-- 图标型 (icon) 属性 -->
+            <!-- 图标型 (icon) 属性 Muse-UI专用 -->
             <iconPicker v-if="v.type==='icon'" @change="updateAttribute" v-model="v.value" :name="k"/>
+            <!-- 图标型 (ionicon) 属性 iView-UI专用 -->
+            <ioniconPicker v-if="v.type==='ionicon'" @change="updateAttribute" v-model="v.value" :name="k"/>
             <!-- 颜色型 (color) 属性 -->
             <colorPicker v-if="v.type==='color'" @change="updateAttribute" v-model="v.value" :name="k"/>
             <!-- 子属性 -->
@@ -35,6 +37,7 @@
 <script>
 import iconPicker from './iconPicker'
 import colorPicker from './colorPicker'
+import ioniconPicker from './ioniconPicker'
 export default {
     name: 'subAttributes',
     data() {
@@ -80,7 +83,7 @@ export default {
         }
     },
     components: {
-        iconPicker,colorPicker
+        iconPicker,colorPicker,ioniconPicker
     }
 }
 </script>

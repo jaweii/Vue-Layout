@@ -1,22 +1,23 @@
 import Common from './Common'
 import MuseUI from './Muse-UI'
 import MintUI from './Mint-UI'
+import iViewUI from './iView-UI'
+
 var getTemplate = function(info, _attr = {}, _slots = {}) {
     let component
-    if (info.ui === 'Muse-UI') {
-        if (!MuseUI[info.name])
-            throw '没有这个模板' + info.name
-        component = MuseUI[info.name](_attr, _slots, info)
-    }
-    if (info.ui === 'Mint-UI') {
-        if (!MintUI[info.name])
-            throw '没有这个模板' + info.name
-        component = MintUI[info.name](_attr, _slots, info)
-    }
-    if (info.ui === 'Common') {
-        if (!Common[info.name])
-            throw '没有这个模板' + info.name
-        component = Common[info.name](_attr, _slots, info)
+    switch (info.ui) {
+        case 'Muse-UI':
+            component = MuseUI[info.name](_attr, _slots, info)
+            break
+        case 'Mint-UI':
+            component = MintUI[info.name](_attr, _slots, info)
+            break
+        case 'iView-UI':
+            component = iViewUI[info.name](_attr, _slots, info)
+            break
+        case 'Common':
+            component = Common[info.name](_attr, _slots, info)
+            break
     }
 
     //为了不让二次获取模板时丢失slot信息
@@ -26,10 +27,10 @@ var getTemplate = function(info, _attr = {}, _slots = {}) {
     delete component.attributes.slot
 
     //没有class属性的，添加class属性
-    if(!component.attributes.class){
-        component.attributes.class={
-            type:'text',
-            value:''
+    if (!component.attributes.class) {
+        component.attributes.class = {
+            type: 'text',
+                value: ''
         }
     }
 
@@ -70,7 +71,7 @@ var getStringTypeAttr = function(attributes) {
     let stringAttr = ''
     Object.keys(attributes).forEach(key => {
         let attrKey
-        let arr = ['text', 'selection', 'icon', 'color'] //这些类型都不用加bind
+        let arr = ['text', 'selection', 'icon','ionicon', 'color'] //这些类型都不用加bind
         if (arr.includes(attributes[key].type) || attributes[key].notBind) {
             attrKey = key
         } else {
@@ -82,4 +83,3 @@ var getStringTypeAttr = function(attributes) {
     return stringAttr
 }
 export { getSlotContent, getTemplate, getStringTypeAttr }
-
