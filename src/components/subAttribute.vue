@@ -20,7 +20,7 @@
             <!--  开关（boolean）属性   -->
             <mu-switch v-if="v.type==='boolean'" :label="k" v-model="v.value" @change="updateAttribute" labelLeft :style="{width:'100%',marginBottom:'10px'}" />
             <!--  选择型 (selection) 属性  -->
-            <mu-select-field v-if="v.type==='selection'" autoWidth v-model="v.value" :label="k" @input="updateAttribute" style="width:100%;">
+            <mu-select-field v-if="v.type==='selection'" v-model="v.value" :label="k" @input="updateAttribute" style="width:100%;">
                 <mu-menu-item v-for="(item,index) in v.items" :value="item" :title="item" :key="index" />
             </mu-select-field>
             <!-- 图标型 (icon) 属性 Muse-UI专用 -->

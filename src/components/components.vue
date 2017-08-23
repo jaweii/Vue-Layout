@@ -154,7 +154,7 @@
             </ul>
         </div>
         <div v-if="activeUI === 'iView-UI'">
-            <ul class="components-list">
+            <ul class="components-list iview-ui">
                 <li draggable="true" @dragstart="dragStart" data-name="Row">
                     <iview-row />
                 </li>
@@ -165,7 +165,32 @@
                     <iview-button-group />
                 </li>
                 <li draggable="true" @dragstart="dragStart" data-name="Icon">
-                    <Icon type="happy-outline" :size="32"/>
+                    <Icon type="happy-outline" :size="28" /> icon
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Radio">
+                    <Radio>Radio</Radio>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="RadioGroup">
+                    <iview-radio-group />
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Checkbox">
+                    <Checkbox>Checkbox</Checkbox>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="iSwitch">
+                    <i-switch></i-switch>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Select">
+                    <iview-select />
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Slider">
+                    Slider
+                    <Slider :value="50" style="width:75%;display:inline-block;vertical-align:middle;" />
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="DatePicker">
+                    <Date-picker size="large" type="date" placeholder="Date Picker"></Date-picker>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="TimePicker">
+                    <Time-picker size="large" type="time" placeholder="Time Picker"></Time-picker>
                 </li>
             </ul>
         </div>
@@ -278,6 +303,13 @@ export default {
     }
     i {
         vertical-align: middle;
+    }
+}
+
+.components-list.iview-ui >li {
+    transform: scale(0.8)translateX(-5%);
+    &:hover {
+        transform: scale(1.1)translateX(10%);
     }
 }
 </style>
