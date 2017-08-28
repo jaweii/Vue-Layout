@@ -3,6 +3,7 @@ import Col from './Col'
 import Button from './Button'
 import ButtonGroup from './ButtonGroup'
 import Icon from './Icon'
+import Input from './Input'
 import Radio from './Radio'
 import RadioGroup from './RadioGroup'
 import Checkbox from './Checkbox'
@@ -12,6 +13,10 @@ import Option from './Option'
 import Slider from './Slider'
 import DatePicker from './DatePicker'
 import TimePicker from './TimePicker'
+import InputNumber from './InputNumber'
+import Rate from './Rate'
+import Form from './Form'
+import FormItem from './FormItem'
 
 var obj = {
     Row,
@@ -19,6 +24,7 @@ var obj = {
     Button,
     ButtonGroup,
     Icon,
+    Input,
     Radio,
     RadioGroup,
     Checkbox,
@@ -27,7 +33,11 @@ var obj = {
     Option,
     Slider,
     DatePicker,
-    TimePicker
+    TimePicker,
+    InputNumber,
+    Rate,
+    Form,
+    FormItem
 }
 
 export default obj

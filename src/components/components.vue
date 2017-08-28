@@ -167,6 +167,9 @@
                 <li draggable="true" @dragstart="dragStart" data-name="Icon">
                     <Icon type="happy-outline" :size="28" /> icon
                 </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Input">
+                        <Input placeholder="Input"></Input>
+                </li>
                 <li draggable="true" @dragstart="dragStart" data-name="Radio">
                     <Radio>Radio</Radio>
                 </li>
@@ -191,6 +194,15 @@
                 </li>
                 <li draggable="true" @dragstart="dragStart" data-name="TimePicker">
                     <Time-picker size="large" type="time" placeholder="Time Picker"></Time-picker>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="InputNumber">
+                    <Input-number :max="10" :min="1" />
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Rate">
+                    <Rate :value="5"/>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Form">
+                    <iview-form/>
                 </li>
             </ul>
         </div>
