@@ -15,7 +15,7 @@
   "dependencies": {
     "codemirror": "^5.27.4",
     "dragula": "^3.7.2",
-    "iview": "^2.1.0",
+    "iview": "^2.2.0",
     "jotted": "^1.5.1",
     "leancloud-storage": "^3.1.0",
     "mint-ui": "^2.2.7",

@@ -196,13 +196,22 @@
                     <Time-picker size="large" type="time" placeholder="Time Picker"></Time-picker>
                 </li>
                 <li draggable="true" @dragstart="dragStart" data-name="InputNumber">
-                    <Input-number :max="10" :min="1" />
+                   InputNumber <Input-number :max="10" :min="1" />
                 </li>
                 <li draggable="true" @dragstart="dragStart" data-name="Rate">
                     <Rate :value="5"/>
                 </li>
                 <li draggable="true" @dragstart="dragStart" data-name="Form">
                     <iview-form/>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="ColorPicker">
+                    <ColorPicker value="#19be6b"/>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Alert">
+                    <Alert show-icon>Alert</Alert>
+                </li>
+                <li draggable="true" @dragstart="dragStart" data-name="Card">
+                    <Card />
                 </li>
             </ul>
         </div>

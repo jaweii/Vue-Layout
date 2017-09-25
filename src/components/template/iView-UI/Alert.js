@@ -3,56 +3,32 @@ import { getTemplate, getSlotContent, getStringTypeAttr } from '@/components/tem
 var handle = function(_attr, _slots) {
     //定义默认属性
     let attributes = {
+            label:{
+                type:'text',
+                value:'Alert'
+            },
             type:{
                 type:'selection',
-                items:['text','password','textarea'],
+                items:['info','success','warning','error'],
                 value:''
             },
-            value:{
-                type:'text',
-                value:''
-            },
-            size:{
-                type:'selection',
-                items:['large','small',''],
-                value:''
-            },
-            placeholder:{
-                type:'text',
-                value:''
-            },
-            readonly:{
-                type:'text',
-                value:''
-            },
-            maxlength:{
-                type:'number',
-                value:''
-            },
-            icon:{
-                type:'ionicon',
-                value:''
-            },
-            rows:{
-                type:'number',
-                value:''
-            },
-            autosize:{
+            closable:{
                 type:'boolean',
                 value:false
             },
-            number:{
+            ['show-icon']:{
                 type:'boolean',
-                value:''
+                value:false
             },
-            autofoucs:{
+            banner:{
                 type:'boolean',
                 value:false
             }
         },
         slots = {
-            prepend:[],
-            append:[]
+            desc:[],
+            icon:[],
+            close:[]
         }
 
     //覆盖默认属性
@@ -79,10 +55,12 @@ var handle = function(_attr, _slots) {
 
     //字符串模板操作
     let stringAttr = getStringTypeAttr(attributes)
-    let template = `<Input 
+    let template = `<Alert 
                         ${stringAttr}>
-                        ${subContent}
-                    </Input>`
+                        ${attributes.label.value}${subContent}
+                    </Alert>` 
+    //删除自定义非ui属性
+    template = template.replace(`label="${attributes.label.value}"`, '')
 
     return { template, attributes, slots }
 }

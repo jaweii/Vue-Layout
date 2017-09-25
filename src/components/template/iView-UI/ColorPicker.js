@@ -3,56 +3,30 @@ import { getTemplate, getSlotContent, getStringTypeAttr } from '@/components/tem
 var handle = function(_attr, _slots) {
     //定义默认属性
     let attributes = {
-            type:{
-                type:'selection',
-                items:['text','password','textarea'],
-                value:''
-            },
             value:{
-                type:'text',
+                type:'color',
+                value:'#19be6b'
+            },
+            alpha:{
+                type:'boolean',
+                value:false
+            },
+            recommend:{
+                type:'boolean',
+                value:false
+            },
+            format:{
+                type:'selection',
+                items:['hsl','hsv','hex','rgb',''],
                 value:''
             },
             size:{
                 type:'selection',
-                items:['large','small',''],
+                items:['large','small','default',''],
                 value:''
-            },
-            placeholder:{
-                type:'text',
-                value:''
-            },
-            readonly:{
-                type:'text',
-                value:''
-            },
-            maxlength:{
-                type:'number',
-                value:''
-            },
-            icon:{
-                type:'ionicon',
-                value:''
-            },
-            rows:{
-                type:'number',
-                value:''
-            },
-            autosize:{
-                type:'boolean',
-                value:false
-            },
-            number:{
-                type:'boolean',
-                value:''
-            },
-            autofoucs:{
-                type:'boolean',
-                value:false
             }
         },
         slots = {
-            prepend:[],
-            append:[]
         }
 
     //覆盖默认属性
@@ -79,10 +53,10 @@ var handle = function(_attr, _slots) {
 
     //字符串模板操作
     let stringAttr = getStringTypeAttr(attributes)
-    let template = `<Input 
+    let template = `<ColorPicker 
                         ${stringAttr}>
                         ${subContent}
-                    </Input>`
+                    </ColorPicker>`
 
     return { template, attributes, slots }
 }

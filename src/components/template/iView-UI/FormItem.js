@@ -61,10 +61,10 @@ var handle = function(_attr, _slots) {
 
     //字符串模板操作
     let stringAttr = getStringTypeAttr(attributes)
-    let template = `<Button 
+    let template = `<FormItem 
                         ${stringAttr}>
                         ${subContent || '&nbsp;'}
-                    </Button>`
+                    </FormItem>`
 
     return { template, attributes, slots }
 }

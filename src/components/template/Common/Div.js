@@ -3,9 +3,13 @@ import { getTemplate, getSlotContent, getStringTypeAttr } from '@/components/tem
 var handle = function(_attr, _slots) {
     //定义默认属性
     let attributes = {
+            text: {
+                type: 'text',
+                value: ''
+            }
         },
         slots = {
-            default:[]
+            default: []
         }
 
     //覆盖默认属性
@@ -33,9 +37,10 @@ var handle = function(_attr, _slots) {
     //字符串模板操作
     let stringAttr = getStringTypeAttr(attributes)
     let template = `<div ${stringAttr}>
-                        ${subContent||'&nbsp;'}
+                        ${subContent||attributes.text.value?attributes.text.value:'&nbsp;'}
                     </div>`
 
+    template = template.replace(/text=".*?"/g, '') //模板字符串中删除text属性
 
     return { template, attributes, slots }
 }

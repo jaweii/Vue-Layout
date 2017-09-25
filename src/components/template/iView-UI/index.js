@@ -17,6 +17,9 @@ import InputNumber from './InputNumber'
 import Rate from './Rate'
 import Form from './Form'
 import FormItem from './FormItem'
+import ColorPicker from './ColorPicker'
+import Alert from './Alert'
+import Card from './Card'
 
 var obj = {
     Row,
@@ -37,7 +40,10 @@ var obj = {
     InputNumber,
     Rate,
     Form,
-    FormItem
+    FormItem,
+    ColorPicker,
+    Alert,
+    Card
 }
 
 export default obj
